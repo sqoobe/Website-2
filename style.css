@@ -87,9 +87,15 @@ body{
 }
 #sidebar .sub-menu{
     display: grid;
+    grid-template-rows: 0fr;
     transition: 300ms ease-in-out;
+
+    > div{
+        overflow: hidden;
+    }
 }
 #sidebar .sub-menu.show{
+    grid-template-rows: 1fr;
 
 }
 
