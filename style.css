@@ -38,6 +38,14 @@ body{
     position: sticky;
     top: 0;
     align-self: start;
+    transition: 300ms ease-in-out;
+    overflow: hidden;
+    text-wrap: nowrap;
+}
+
+#sidebar.close{
+    padding: 5px;
+    width: 60px;
 }
 #sidebar ul{
     list-style: none;
@@ -98,10 +106,30 @@ body{
     grid-template-rows: 1fr;
 
 }
+.dropdown-btn svg{
+    transition: 200ms ease;
+}
+.rotate svg:last-child{
+    rotate: -180deg;
+}
+#sidebar .sub-menu a{
+    padding-left: 2em;
+}
+#toggle-btn{
+    margin-left: auto;
+    padding: 1em;
+    border: none;
+    border-radius: .5em;
+    background: none;
+    cursor: pointer;
 
-
-
-
+    svg{
+        transition: rotate 150ms ease;
+    }
+}
+#toggle-btn:hover{
+    background-color: var(--hover-clr);
+}
 
 
 
@@ -127,4 +155,11 @@ main p{
     padding: min(3em, 15%);
 
     h2, p { margin-top: 1em }
+}
+
+
+@media(max-width: 800px){
+    body{
+        grid-template-columns: 1fr;
+    }
 }
