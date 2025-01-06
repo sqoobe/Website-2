@@ -7,14 +7,17 @@ function toggleSidebar(){
     toggleButton.classList.toggle('rotate') //rotate icon
 
     //closes dropdown menu when toggle sidebar
-    Array.from(sidebar.getElementsByClassName('show')).forEach(ul => {
-        ul.classList.remove('show')
-        ul.previousElementSibling.classList.remove('rotate')
-    })
+    closeAllSubMenus()
 }
 
 //show dropdown menu list
 function toggleSubMenu(button){
+
+//show dropdown menu and closes other if it is shown
+    if(!button.nextElementSibling.classList.contains('show')){
+        closeAllSubMenus()
+    }
+
     button.nextElementSibling.classList.toggle('show')
     button.classList.toggle('rotate')//rotate icon
 
@@ -24,4 +27,13 @@ function toggleSubMenu(button){
         sidebar.classList.toggle('close')
         toggleButton.classList.toggle('rotate')
     }
+}
+
+
+//closes dropdown menu when toggle sidebar
+function closeAllSubMenus(){
+    Array.from(sidebar.getElementsByClassName('show')).forEach(ul => {
+        ul.classList.remove('show')
+        ul.previousElementSibling.classList.remove('rotate')
+    })
 }
